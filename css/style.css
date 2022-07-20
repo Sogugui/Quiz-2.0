@@ -81,18 +81,30 @@ body {
 }
 
 #question {
-    position: relative;
+    /* position: relative;
     right: 20px;
-    width: 240px;
+    width: 500px;
     overflow: wrap;
     padding: 0;
     font-family: 'Electrolize', sans-serif;
+    color: papayawhip; */
+    right: 20px;
+    width: 15em;
+    overflow: wrap;
+    padding-left: 4em;
+    font-family: 'Electrolize', sans-serif;
+    color: papayawhip;
+    display: flex;
+    flex-direction: column;
 }
 h1{
     font-family: 'Neonderthaw', cursive !important;
     font-size: 40px;
    
 
+}
+h2{
+    display: flex;
 }
 ul {
     list-style-type: none;
@@ -111,23 +123,72 @@ ul li {
     font-family: 'Electrolize', sans-serif;
 }
 
-button {
+.btn {
+    /* background-color: #ec0ee7;
+    background-size: cover;
+    color: #fff;
+    border: none;
+    display: flex;
+    cursor: pointer;
+    font-size: 1.1rem;
+    padding: 1.3rem;
+    top: 60px;
+    height: 40px;
+    width: 27rem;
+    padding: 20px;
+    border-radius: 20px;
+    font-family: 'Electrolize', sans-serif;
+    margin: 10px;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center; */
     background-color: #ec0ee7;
     background-size: cover;
     color: #fff;
     border: none;
-    display: block;
+    display: flex;
     cursor: pointer;
     font-size: 1.1rem;
     padding: 1.3rem;
-    position: relative;
     top: 60px;
     height: 40px;
-    width: 120px;
-    padding: 0;
+    width: 23rem;
+    padding: 20px;
     border-radius: 20px;
-    transition: 0.2s;
     font-family: 'Electrolize', sans-serif;
+    margin: 10px;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+#submit{
+    /* background: linear-gradient(to bottom, #ff99ff 0%, #9999ff 100%) !important;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 27rem;
+    border-radius: 20px;
+    align-content: center;
+    margin-top: 30px;
+    margin-left: 50px px;
+    margin-right: 50px;
+    height: 3rem; */
+    background: linear-gradient(to bottom, #ff99ff 0%, #9999ff 100%) !important;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 23rem;
+    align-content: center;
+    margin-top: 30px;
+    margin-left: 50px px;
+    /* margin-right: 50px; */
+    height: 3rem;
+    border-radius: 2em;
 }
 
 
@@ -224,6 +285,12 @@ button {
         padding: 0;
         font-family: 'Electrolize', sans-serif;
     }
+    h1{
+     font-family: 'Neonderthaw', cursive !important;
+    font-size: 40px;
+    margin-top: 2.2em;
+    margin-bottom: 2px;
+    }
 
     ul {
         list-style-type: none;
@@ -242,22 +309,62 @@ button {
         font-family: 'Electrolize', sans-serif;
     }
 
-    button {
-        background-size: cover;
+
+    .btn {
+        /* background-size: cover;
         color: #fff;
         border: none;
-        display: block;
+        display: flex;
         cursor: pointer;
-        font-size: 1.5rem;
-        padding: 1.3rem;
-        position: relative;
+        font-size: 1.5rem;  
         top: 90px;
         height: 60px;
-        width: 180px;
-        padding: 0;
         border-radius: 15px;
         text-decoration: none;
         transition: 0.2s;
+        align-content: center;
+        margin-left: 130px;
+        height: 3rem;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap; */
+        background-size: cover;
+        color: #fff;
+        border: none;
+        display: flex;
+        cursor: pointer;
+        font-size: 1.5rem;
+        top: 90px;
+        height: 60px;
+        border-radius: 15px;
+        text-decoration: none;
+        transition: 0.2s;
+        align-content: center;
+        margin-left: 130px;
+        height: 3rem;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        width: 27rem;
+
+    }
+    #submit{
+        background: linear-gradient(to bottom, #ff99ff 0%, #9999ff 100%) !important;
+        color: white;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        width: 27rem;
+        border-radius: 20px;
+        align-content: center;
+        margin-top: 30px;
+        margin-left: 50px;
+        margin-right: 50px;
+        height: 3rem;
+        font-size: 18px;
     }
 
     #click:hover {
