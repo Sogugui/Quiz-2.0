@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="./css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Añadido favicon -->
+    <link rel="shortcut icon" href="https://img.icons8.com/nolan/344/question-mark.png" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css2?family=Electrolize&family=Neonderthaw&display=swap" rel="stylesheet">
 
 </head>
@@ -16,42 +18,24 @@
 <body>
     <h1>Quiz 2.0</h1>
     <main id="quiz" class="form_box">
-
         <form class="quizCont" id="form">
-
             <h2 id="question">Question</h2>
+            <input class="answer" id="inp0" type="radio" name="answer" required>
+            <label class="btn" for="inp0" type="radio"></label>
+            <input class="answer" id="inp1" type="radio" name="answer">
+            <label class="btn" for="inp1" type="radio"></label>
+            <input class="answer" id="inp2" type="radio" name="answer" required>
+            <label class="btn" for="inp2" type="radio"></label>
+            <input class="answer" id="inp3" type="radio" name="answer">
+            <label class="btn" for="inp3" type="radio"></label>
 
-            <ul>
-                <li>
-                    <input class="answer" id="answer1" type="radio" name="answer">
-                    <label for="answer1" id="label1"></label>
-                </li>
 
-                <li>
-                    <input class="answer" id="answer2" type="radio" name="answer">
-                    <label for="answer2" id="label2"></label>
-                </li>
-
-                <li>
-                    <input class="answer" id="answer3" type="radio" name="answer">
-                    <label for="answer3" id="label3"></label>
-                </li>
-
-                <li>
-                    <input class="answer" id="answer4" type="radio" name="answer">
-                    <label for="answer4" id="label4"></label>
-                </li>
-
-            </ul>
 
         </form>
+
     </main>
-    <!-- <audio id="intro" src="../assets/lets_play.mp3"></audio>
-    <audio id="millionaire" autoplay="true" src="../assets/Millionaire.mp3"></audio>
-    <audio id="audio_wrong" src="../assets/wrong_answer.mp3"></audio>
-    <audio id="audio_correct" src="../assets/correct_answer.mp3"></audio> -->
     <button id="submit">Siguiente</button>
-  
+
     <script src="./js/index.js"></script>
 </body>
 

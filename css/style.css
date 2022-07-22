@@ -2,9 +2,10 @@
     text-align: start;
     box-sizing: border-box;
     font-family: 'Electrolize', sans-serif;
-  
+
     color: #ec0ee7;
 }
+
 #start_container {
     display: flex;
     flex-direction: column;
@@ -18,7 +19,7 @@
     top: 100px;
 }
 
-#click{
+#click {
     text-align: center;
     text-decoration: none;
     background-color: rgb(57, 57, 57);
@@ -46,8 +47,7 @@ body {
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
-    background-size:auto
-
+    background-size: auto
 }
 
 #main {
@@ -81,19 +81,54 @@ body {
 }
 
 #question {
-    position: relative;
+    /* position: relative;
     right: 20px;
-    width: 240px;
+    width: 500px;
     overflow: wrap;
     padding: 0;
     font-family: 'Electrolize', sans-serif;
+    color: papayawhip; */
+    right: 20px;
+    width: 15em;
+    overflow: wrap;
+    padding-left: 4em;
+    font-family: 'Electrolize', sans-serif;
+    color: papayawhip;
+    display: flex;
+    flex-direction: column;
 }
-h1{
+
+/* añadido id para index */
+#questionIndex {
+    /* position: relative;
+    right: 20px;
+    width: 500px;
+    overflow: wrap;
+    padding: 0;
+    font-family: 'Electrolize', sans-serif;
+    color: papayawhip; */
+
+    width: 15em;
+    overflow: wrap;
+    text-align: center;
+    font-family: 'Electrolize', sans-serif;
+    color: papayawhip;
+    margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+h1 {
     font-family: 'Neonderthaw', cursive !important;
     font-size: 40px;
-   
+
 
 }
+
+h2 {
+    display: flex;
+}
+
 ul {
     list-style-type: none;
     padding-left: 0;
@@ -103,7 +138,6 @@ ul {
 }
 
 ul li {
-    
     font-size: 1.5rem;
     margin: 1rem 1.5rem;
     background-color: #fff;
@@ -111,25 +145,123 @@ ul li {
     font-family: 'Electrolize', sans-serif;
 }
 
-button {
+.btn {
+    /* background-color: #ec0ee7;
+    background-size: cover;
+    color: #fff;
+    border: none;
+    display: flex;
+    cursor: pointer;
+    font-size: 1.1rem;
+    padding: 1.3rem;
+    top: 60px;
+    height: 40px;
+    width: 27rem;
+    padding: 20px;
+    border-radius: 20px;
+    font-family: 'Electrolize', sans-serif;
+    margin: 10px;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center; */
     background-color: #ec0ee7;
     background-size: cover;
     color: #fff;
     border: none;
-    display: block;
+    display: flex;
     cursor: pointer;
     font-size: 1.1rem;
     padding: 1.3rem;
-    position: relative;
     top: 60px;
     height: 40px;
-    width: 120px;
-    padding: 0;
+    width: 23rem;
+    padding: 20px;
     border-radius: 20px;
-    transition: 0.2s;
     font-family: 'Electrolize', sans-serif;
+    margin: 10px;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
 }
 
+/* añadido */
+.btn:hover {
+    background-color: #ec0ee884;
+}
+
+input:checked+label {
+    background-color: #f975f684;
+}
+
+/* Casilla del checkbox */
+input {
+    display: none;
+}
+
+#submit {
+    /* background: linear-gradient(to bottom, #ff99ff 0%, #9999ff 100%) !important;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 27rem;
+    border-radius: 20px;
+    align-content: center;
+    margin-top: 30px;
+    margin-left: 50px px;
+    margin-right: 50px;
+    height: 3rem; */
+    background: linear-gradient(to bottom, #ff99ff 0%, #9999ff 100%) !important;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 23rem;
+    align-content: center;
+    margin-top: 30px;
+    margin-left: 50px px;
+    /* margin-right: 50px; */
+    height: 3rem;
+    border-radius: 2em;
+}
+
+/* Nuevo id para index */
+#submitIndex {
+    /* background: linear-gradient(to bottom, #ff99ff 0%, #9999ff 100%) !important;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 27rem;
+    border-radius: 20px;
+    align-content: center;
+    margin-top: 30px;
+    
+    margin-right: 50px;
+    height: 3rem; */
+    margin-left: 10px;
+    background: linear-gradient(to bottom, #ff99ff 0%, #9999ff 100%) !important;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    /* align-items: center; */
+    width: 23rem;
+    align-content: center;
+    margin-top: 30px;
+
+    /* margin-right: 50px; */
+    height: 3rem;
+    border-radius: 2em;
+}
+
+/* añadida clase para index */
+.message {
+    color: white;
+    text-decoration: none;
+    margin-left: 35px;
+}
 
 
 #result {
@@ -140,10 +272,51 @@ button {
     top: 80px;
 }
 
+/* Modificado para que tenga el mismo estilo */
 #reload {
     position: relative;
     top: 100px;
-    left: 85px;
+    left: 5px;
+
+    background-color: #ec0ee7;
+    background-size: cover;
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    font-family: 'Electrolize', sans-serif;
+    width: 23rem;
+    cursor: pointer;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    margin: 10px;
+    font-size: 1.1rem;
+    display: flex;
+
+    /* background-color: #ec0ee7;
+    background-size: cover;
+    color: #fff;
+    border: none;
+    display: flex;
+    cursor: pointer;
+    font-size: 1.1rem;
+    padding: 1.3rem;
+    top: 60px;
+    height: 40px;
+    width: 27rem;
+    padding: 20px;
+    border-radius: 20px;
+    font-family: 'Electrolize', sans-serif;
+    margin: 10px;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center; */
+    /*    
+    padding: 1.3rem;
+    height: 40px;
+    flex-direction: column;
+    flex-wrap: wrap; */
 }
 
 
@@ -163,7 +336,7 @@ button {
         top: 40px;
     }
 
-    #click{
+    #click {
         text-align: center;
         text-decoration: none;
         background-color: rgb(64, 64, 64);
@@ -185,14 +358,14 @@ button {
 
     body {
         display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 0px;
-    background-image: url(../assets/img/4729668.jpg);
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: center;
-    background-size:cover
+        flex-direction: column;
+        align-items: center;
+        margin: 0px;
+        background-image: url(../assets/img/4729668.jpg);
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: center;
+        background-size: cover
     }
 
     .Box {
@@ -225,6 +398,26 @@ button {
         font-family: 'Electrolize', sans-serif;
     }
 
+    /* añadida id para el index */
+    #questionIndex {
+        font-size: 2rem;
+        position: relative;
+        top: 0px;
+        width: 670px;
+        overflow: wrap;
+        padding: 0;
+
+        font-family: 'Electrolize', sans-serif;
+    }
+
+
+    h1 {
+        font-family: 'Neonderthaw', cursive !important;
+        font-size: 40px;
+        margin-top: 2.2em;
+        margin-bottom: 2px;
+    }
+
     ul {
         list-style-type: none;
         padding-left: 0;
@@ -237,27 +430,94 @@ button {
     ul li {
         font-size: 1.5rem;
         margin: 1rem 1.5rem;
-        padding-top:5px;
+        padding-top: 5px;
         padding-bottom: 15px;
         font-family: 'Electrolize', sans-serif;
     }
 
-    button {
-        background-size: cover;
+
+    .btn {
+        /* background-size: cover;
         color: #fff;
         border: none;
-        display: block;
+        display: flex;
         cursor: pointer;
-        font-size: 1.5rem;
-        padding: 1.3rem;
-        position: relative;
+        font-size: 1.5rem;  
         top: 90px;
         height: 60px;
-        width: 180px;
-        padding: 0;
         border-radius: 15px;
         text-decoration: none;
         transition: 0.2s;
+        align-content: center;
+        margin-left: 130px;
+        height: 3rem;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap; */
+        background-size: cover;
+        color: #fff;
+        border: none;
+        display: flex;
+        cursor: pointer;
+        font-size: 1.5rem;
+        top: 90px;
+        height: 60px;
+        border-radius: 15px;
+        text-decoration: none;
+        transition: 0.2s;
+        align-content: center;
+        margin-left: 130px;
+        height: 3rem;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        width: 27rem;
+
+    }
+
+    #submit {
+        background: linear-gradient(to bottom, #ff99ff 0%, #9999ff 100%) !important;
+        color: white;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        width: 27rem;
+        border-radius: 20px;
+        align-content: center;
+        margin-top: 30px;
+        margin-left: 50px;
+        margin-right: 50px;
+        height: 3rem;
+        font-size: 18px;
+    }
+
+    /* añadido id para index */
+    #submitIndex {
+        background: linear-gradient(to bottom, #ff99ff 0%, #9999ff 100%) !important;
+        color: white;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        width: 27rem;
+        border-radius: 20px;
+        align-content: center;
+        margin-top: 30px;
+        margin-left: 130px;
+        margin-right: 50px;
+        height: 3rem;
+        font-size: 18px;
+    }
+
+    /* añadida clase para index */
+    .message {
+        color: white;
+        text-decoration: none;
+        margin-left: 135px;
+
     }
 
     #click:hover {
@@ -276,7 +536,7 @@ button {
     #reload {
         position: relative;
         top: 100px;
-        left: 290px;
+        left: 150px;
     }
 
 }
