@@ -187,6 +187,20 @@ ul li {
     align-items: center;
 }
 
+/* añadido */
+.btn:hover {
+    background-color: #ec0ee884;
+}
+
+input:checked+label {
+    background-color: #f975f684;
+}
+
+/* Casilla del checkbox */
+input {
+    display: none;
+}
+
 #submit {
     /* background: linear-gradient(to bottom, #ff99ff 0%, #9999ff 100%) !important;
     display: flex;
@@ -259,10 +273,51 @@ ul li {
     top: 80px;
 }
 
+/* Modificado para que tenga el mismo estilo */
 #reload {
     position: relative;
     top: 100px;
-    left: 85px;
+    left: 5px;
+
+    background-color: #ec0ee7;
+    background-size: cover;
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    font-family: 'Electrolize', sans-serif;
+    width: 23rem;
+    cursor: pointer;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    margin: 10px;
+    font-size: 1.1rem;
+    display: flex;
+
+    /* background-color: #ec0ee7;
+    background-size: cover;
+    color: #fff;
+    border: none;
+    display: flex;
+    cursor: pointer;
+    font-size: 1.1rem;
+    padding: 1.3rem;
+    top: 60px;
+    height: 40px;
+    width: 27rem;
+    padding: 20px;
+    border-radius: 20px;
+    font-family: 'Electrolize', sans-serif;
+    margin: 10px;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center; */
+    /*    
+    padding: 1.3rem;
+    height: 40px;
+    flex-direction: column;
+    flex-wrap: wrap; */
 }
 
 
@@ -482,7 +537,7 @@ ul li {
     #reload {
         position: relative;
         top: 100px;
-        left: 290px;
+        left: 150px;
     }
 
 }
