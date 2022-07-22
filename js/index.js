@@ -2,6 +2,7 @@
 const quiz = document.getElementById("quiz");
 let currentQuestion=0;
 let score=0;
+let result=0;
 async function getQuestions() {
   const answElems = document.querySelectorAll(".answer");
   const quesElem = document.getElementById("question");
