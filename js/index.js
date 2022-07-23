@@ -15,14 +15,12 @@ async function getQuestions() {
   //Añadida función para deseleccionar los radio
   function unselect() {
     allRadio.forEach((x) => x.checked = false);
-  }
-
-
+  console.log(allRadio[0].checked);
   let allquestions = await fetch(
     "https://opentdb.com/api.php?amount=10&category=9&difficulty=easy&type=multiple"
   );
   let infoquestions = await allquestions.json();
-
+  
   function paint(num) {
     let allAnswers = [...infoquestions.results[num].incorrect_answers, infoquestions.results[num].correct_answer]
     let question = infoquestions.results[num].question
