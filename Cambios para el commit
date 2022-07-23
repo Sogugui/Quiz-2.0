@@ -1,0 +1,11 @@
+- Añadido enlace en logo en quiz.html para ir a index.html
+- Modificado estilo para el logo con enlace
+- Añadidos datos a mi firebase
+- Añadidas funciones para crear modificar y visualizar usuarios en index.js
+- Añadido enlace en "crear una cuenta"
+- Añadido boton al final del quiz para deslogar (no funcona)
+- Inicio de sesion operativo
+- al logar te redirecciona al quiz
+- formulario de creacion de usuario operativo
+- al crear usuario te redireccion al index para que inicies sesion
+- He movido la logica de firestore a login.js porque habia conflictos con los listener
