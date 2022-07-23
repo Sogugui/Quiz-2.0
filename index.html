@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Electrolize&family=Neonderthaw&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="https://img.icons8.com/nolan/344/question-mark.png" type="image/x-icon">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Quiz</title>
+</head>
+
+<body>
+    <h1><a href="./index.html">Quiz 2.0</a></h1>
+    <main class="form_box">
+        <hr>
+        <form id="form2" action="#" method="POST" class="quizCont">
+            <h2 id="questionIndex">Te crees un crack??</h2>
+            <h2 id="questionIndex">Demuestralo!!</h2>
+
+            <input id="email2" name="email2" class="btn" type="text" placeholder="Usuario" />
+            <input id="pass3" name="pass3" class="btn" type="password" placeholder="Contraseña" />
+            <button id="submitIndex" type="submit">Iniciar Sesión</button>
+            <button><a href="quiz.html">Entrar</a></button>
+
+        </form>
+        <hr>
+        <form id="form1" action="" class="quizCont">
+            <h2 id="questionIndex">No estas registrado?</h2>
+
+            <input class="btn" type="email" id="email" name="email" placeholder="Correo" />
+            <input class="btn" type="password" id="pass" name="pass" placeholder="Contraseña" value="123456" />
+
+            <input class="btn" type="password" id="pass2" name="pass2" placeholder="Repite Contraseña" value="123456" />
+            <!-- <input class="btn" type="password" id="pass2" name="pass2" placeholder="Repite contraseña" /> -->
+            <button id="submitCreate" type="submit">Crear Usuario</button>
+        </form>
+        <hr>
+    </main>
+
+    <footer>
+
+        <div class="grafica">
+            <h2 id="questionIndex">Últimos resultados</h2>
+            <p>Aquí va la grafica con los datos obtenidos de firabase</p>
+        </div>
+    </footer>
+    <!-- script firebase -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-auth.js"></script>
+    <script src="./js/index.js"></script>
+    <script src="./js/login.js"></script>
+
+</body>
+
+</html>
