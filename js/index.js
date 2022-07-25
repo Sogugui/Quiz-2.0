@@ -16,6 +16,7 @@ async function getQuestions() {
   function unselect() {
     allRadio.forEach((x) => x.checked = false);
   console.log(allRadio[0].checked);
+}
   let allquestions = await fetch(
     "https://opentdb.com/api.php?amount=10&category=9&difficulty=easy&type=multiple"
   );
@@ -33,8 +34,9 @@ async function getQuestions() {
     answerbtn2.value = allAnswers[1]
     answerbtn3.value = allAnswers[2]
     answerbtn4.value = allAnswers[3]
-  }
-  paint(currentQuestion)
+  }// daba error la carga del quiz porque faltaba cerrar esta llave
+  
+  paint(currentQuestion);
 
 
 
@@ -66,5 +68,5 @@ async function getQuestions() {
 
       paint(currentQuestion);
     });
-} getQuestions()
+  }getQuestions()
 

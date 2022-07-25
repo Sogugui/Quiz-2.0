@@ -427,6 +427,12 @@ input {
         padding: 0;
         font-family: 'Electrolize', sans-serif;
     }
+    h1{
+     font-family: 'Neonderthaw', cursive !important;
+    font-size: 40px;
+    margin-top: 2.2em;
+    margin-bottom: 2px;
+    }
 
     /* añadida id para el index */
     #questionIndex {
@@ -506,7 +512,6 @@ input {
         width: 27rem;
 
     }
-
     #submit {
         background: linear-gradient(to bottom, #ff99ff 0%, #9999ff 100%) !important;
         color: white;
