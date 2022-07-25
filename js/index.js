@@ -11,17 +11,19 @@ async function getQuestions() {
   const answElems = document.querySelectorAll(".btn");
   const allRadio = document.querySelectorAll(".answer");//Obtenemos todos los radio
   const submitBtn = document.getElementById("submit");//Obtenemos el boton siguiente
+  const userName = document.getElementById("userName");//Obtenemos h2 para mostrar usuario logado
 
   //Añadida función para deseleccionar los radio
   function unselect() {
     allRadio.forEach((x) => x.checked = false);
-  console.log(allRadio[0].checked);
-}
+  }
   let allquestions = await fetch(
     "https://opentdb.com/api.php?amount=10&category=9&difficulty=easy&type=multiple"
   );
   let infoquestions = await allquestions.json();
-  
+
+  console.log(loggedUser())
+
   function paint(num) {
     let allAnswers = [...infoquestions.results[num].incorrect_answers, infoquestions.results[num].correct_answer]
     let question = infoquestions.results[num].question
@@ -35,9 +37,22 @@ async function getQuestions() {
     answerbtn3.value = allAnswers[2]
     answerbtn4.value = allAnswers[3]
   }// daba error la carga del quiz porque faltaba cerrar esta llave
-  
+
   paint(currentQuestion);
 
+  //Funcion para saber si hay usuarios logados
+  function loggedUser() {
+    // Listener de usuario en el ssitema
+    // Controlar usuario logado
+    firebase.auth().onAuthStateChanged(function (user) {
+      if (user) {
+        userName.innerHTML = "Usuario: " + user.email;
+        console.log(`Sesion iniciada con: ${user.email}`)
+      } else {
+        console.log("no hay usuarios en el sistema");
+      }
+    });
+  }
 
 
   for (let i = 0; i < answElems.length; i++) {
@@ -52,21 +67,22 @@ async function getQuestions() {
     .addEventListener("click", (e) => {
       console.log(currentQuestion);
       console.log(score);
+      console.log(loggedUser())
       unselect();//Llamando a la funcion que deselecciona los radio
       if (currentQuestion == 10) {
         submitBtn.remove();//Eliminamos el boton siguiente
         quiz.innerHTML = `  <div class="quizCont">                        
                            <h2 id="question">You replied ${score}/ 10 correct questions. Keep trying </h2>        
                            <button id="reload" class="reload" onclick="location.reload()">Volver a jugar</button>
-                           <button id="logout" class="reload" onclick="location.reload()">Cerrar sesión</button>
+                           <button id="logout" class="reload" onclick="signOut()">Cerrar sesión</button>
                            </div>
                            `;
-        document.getElementById("logout").addEventListener("click", signOut);
-
+        //Arreglado boton de cerrar sesion
+        addScore(score);
       }
       currentQuestion += 1;
 
       paint(currentQuestion);
     });
-  }getQuestions()
+} getQuestions()
 
