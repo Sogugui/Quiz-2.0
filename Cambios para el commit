@@ -9,3 +9,14 @@
 - formulario de creacion de usuario operativo
 - al crear usuario te redireccion al index para que inicies sesion
 - He movido la logica de firestore a login.js porque habia conflictos con los listener
+
+
+
+
+
+
+25-07-2022
+- Areglado boto de cerrar sesion
+- Añadida funcion para saber si hay usuarios logados
+- Añadida redireccion a index.html al cerrar sesion
+- Añadido h2 para mostrar el usuario activo durante el quiz
