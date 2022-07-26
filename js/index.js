@@ -68,6 +68,7 @@ async function getQuestions() {
       console.log(currentQuestion);
       console.log(score);
       console.log(loggedUser())
+
       unselect();//Llamando a la funcion que deselecciona los radio
       if (currentQuestion == 10) {
         submitBtn.remove();//Eliminamos el boton siguiente

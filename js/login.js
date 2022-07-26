@@ -39,7 +39,7 @@ const signUpUser = (email, password) => {
       // Guarda El usuario en Firestore
       createUser({
         id: user.uid,
-        email: user.email,
+        email: user.email
       })
 
 
@@ -54,28 +54,27 @@ const signUpUser = (email, password) => {
 
 //EN PRUEBAS--------------------------------------------------------------
 //Añadir score y fecha a usuario actual
-// function addScore(num) {
+function addScore(num) {
 
-//   var score = num;
-//   db
-//     .collection('users')
-//     .where('email', '==', firebase.auth().currentUser.email)
-//     .set({
-//       score1: score
-//     })
-//     .then(() => {
-//       console.log("Document is successfully modified!");
-//     }).catch((error) => {
-//       console.error("Error removingggg document: ", error);
-//     })
-// };
+  var email = firebase.auth().currentUser.email;
+  var date = firebase.firestore.FieldValue.serverTimestamp();
 
-// const modifyUser = (user) => {
-//   db.collection("users")
-//     .where('email', '==', firebase.auth().currentUser.email).set({ score: user })
-//     .then((docRef) => console.log("Document written with ID: ", docRef.id))
-//     .catch((error) => console.error("Error adding document: ", error));
-// };
+  db.collection("users").doc("abph0BBBA5nMJ15PS2m2")//imposible obtener la ID del doc
+    // .where("email", "==", email)
+    .set({
+      ultimaPArtida: {
+        scores: num,
+        dates: date
+      }
+    },
+      { merge: true })
+    .then(() => {
+      console.log("Document successfully written!");
+    })
+    .catch((error) => {
+      console.error("Error writing document: ", error);
+    });
+}
 //------------------------------------------------------------------------------
 
 //Iniciar sesion
