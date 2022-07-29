@@ -55,6 +55,8 @@ async function getQuestions() {
   }
 
 
+
+
   for (let i = 0; i < answElems.length; i++) {
     answElems[i].addEventListener("click", function () {
       if (answElems[i].value == infoquestions.results[currentQuestion].correct_answer) {
@@ -68,6 +70,7 @@ async function getQuestions() {
       console.log(currentQuestion);
       console.log(score);
       console.log(loggedUser())
+
       unselect();//Llamando a la funcion que deselecciona los radio
       if (currentQuestion == 10) {
         submitBtn.remove();//Eliminamos el boton siguiente
@@ -75,10 +78,16 @@ async function getQuestions() {
                            <h2 id="question">You replied ${score}/ 10 correct questions. Keep trying </h2>        
                            <button id="reload" class="reload" onclick="location.reload()">Volver a jugar</button>
                            <button id="logout" class="reload" onclick="signOut()">Cerrar sesión</button>
+                           <h2></h2>
+                           </div>
+
+                           <div class="quizCont" id="userGames">
+                           <h2 id="question">Your last games!!</h2>
                            </div>
                            `;
         //Arreglado boton de cerrar sesion
-        addScore(score);
+        addScore(score);//Añadir el score actual
+        paintScores();//Mostrar resultados anteriores de ese usuario
       }
       currentQuestion += 1;
 
