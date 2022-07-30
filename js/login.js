@@ -59,7 +59,10 @@ function addScore(num) {
   firebase.auth().onAuthStateChanged(function (user) {
     if (user) {
       var userUid = user.uid;
-      var date = firebase.firestore.FieldValue.serverTimestamp();
+      // var date = firebase.firestore.FieldValue.serverTimestamp();
+      var d =  new Date();
+      let date = d.toLocaleDateString(); // cambio de var date porque no seteaba la fecha correctamente
+      console.log(date);
 
       db.collection("games").doc()//imposible obtener la ID del doc
         .set({
@@ -109,6 +112,7 @@ const signOut = () => {
   let user = firebase.auth().currentUser;
 
   firebase.auth().signOut().then(() => {
+    window.location.href = "./index.html";
     console.log("Sale del sistema: " + user.user)
   }).catch((error) => {
     console.log("hubo un error: " + error);
@@ -141,6 +145,9 @@ function paintScores() {
   firebase.auth().onAuthStateChanged(function (user) {
     if (user) {
       var userUid = user.uid;
+      var d =  new Date();
+      let date = d.toLocaleDateString(); // cambio de var date porque no seteaba la fecha correctamente
+      console.log(date);
       db.collection('games')
         .where('id_user', '==', userUid)
         .get()
@@ -151,7 +158,7 @@ function paintScores() {
             // Hay que formatear la fecha
             let select = `<br>
               <h3>Date</h3>
-              <p>${doc.data().date}</p><br>
+              <p>${date}</p><br>
               <h3>Score</h3>
               <p>${doc.data().score}</p><br>
               <hr>
