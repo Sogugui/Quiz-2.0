@@ -52,32 +52,6 @@ const signUpUser = (email, password) => {
 
 };
 
-//EN PRUEBAS--------------------------------------------------------------
-//Añadir score y fecha a usuario actual
-// function addScore(num) {
-
-//   var score = num;
-//   db
-//     .collection('users')
-//     .where('email', '==', firebase.auth().currentUser.email)
-//     .set({
-//       score1: score
-//     })
-//     .then(() => {
-//       console.log("Document is successfully modified!");
-//     }).catch((error) => {
-//       console.error("Error removingggg document: ", error);
-//     })
-// };
-
-// const modifyUser = (user) => {
-//   db.collection("users")
-//     .where('email', '==', firebase.auth().currentUser.email).set({ score: user })
-//     .then((docRef) => console.log("Document written with ID: ", docRef.id))
-//     .catch((error) => console.error("Error adding document: ", error));
-// };
-//------------------------------------------------------------------------------
-
 //Iniciar sesion
 const signInUser = (email, password) => {
   firebase.auth().signInWithEmailAndPassword(email, password)
@@ -106,11 +80,8 @@ const signOut = () => {
   let user = firebase.auth().currentUser;
 
   firebase.auth().signOut().then(() => {
-    console.log("Estas usando el boton de cerrar sesion!!");
-    console.log("Sale del sistema: " + user.email);
-    location.replace('index.html');
+    console.log("Sale del sistema: " + user.user)
   }).catch((error) => {
-    console.log("Estas usando el boton de cerrar sesion!!");
     console.log("hubo un error: " + error);
   });
 }
