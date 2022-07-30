@@ -140,9 +140,8 @@ ul li {
     cursor: pointer;
     font-size: 1.1rem;
     padding: 1.3rem;
-    top: 60px;
     height: 40px;
-    width: 23rem;
+    transition: 0.2s;
     padding: 20px;
     border-radius: 20px;
     font-family: 'Electrolize', sans-serif;
@@ -151,6 +150,9 @@ ul li {
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+    align-content: center;
+    margin-left: inherit;
+
 }
 
 /* añadido */
@@ -174,12 +176,14 @@ input {
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    width: 23rem;
-    align-content: center;
+    /* width: 23rem; */
+    /* align-content: center; */
     margin-top: 30px;
-    margin-left: 50px;
+    margin-left: 2rem;
     height: 3rem;
     border-radius: 2em;
+    height: 40px;
+    width: 19rem;
 }
 
 /* Nuevo id para index */
