@@ -22,7 +22,7 @@ async function getQuestions() {
   );
   let infoquestions = await allquestions.json();
 
-  console.log(loggedUser())
+   console.log(loggedUser())
 
   function paint(num) {
     let allAnswers = [...infoquestions.results[num].incorrect_answers, infoquestions.results[num].correct_answer]
@@ -52,7 +52,7 @@ async function getQuestions() {
         console.log("no hay usuarios en el sistema");
       }
     });
-  }
+  }loggedUser()
 
 
 
