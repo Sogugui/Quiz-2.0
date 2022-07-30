@@ -39,7 +39,7 @@ const signUpUser = (email, password) => {
       // Guarda El usuario en Firestore
       createUser({
         id: user.uid,
-        email: user.email,
+        email: user.email
       })
 
 
@@ -51,6 +51,35 @@ const signUpUser = (email, password) => {
     });
 
 };
+
+//EN PRUEBAS--------------------------------------------------------------
+//Añadir score y fecha a usuario actual
+function addScore(num) {
+
+  firebase.auth().onAuthStateChanged(function (user) {
+    if (user) {
+      var userUid = user.uid;
+      var date = firebase.firestore.FieldValue.serverTimestamp();
+
+      db.collection("games").doc()//imposible obtener la ID del doc
+        .set({
+          date: date,
+          id_user: userUid,
+          score: num
+        },
+          { merge: true })
+        .then(() => {
+          console.log("Document successfully written!");
+        })
+        .catch((error) => {
+          console.error("Error writing document: ", error);
+        });
+    } else {
+      console.log("no hay usuarios en el sistema");
+    }
+  });
+}
+//------------------------------------------------------------------------------
 
 //Iniciar sesion
 const signInUser = (email, password) => {
@@ -103,5 +132,39 @@ document.getElementById("form2").onsubmit = (event) => {
   let pass = event.target.elements.pass3.value;
   signInUser(email, pass)
 }
+
+//Mostrar datos
+function paintScores() {
+  console.log("has llamado a paintScores");
+
+  //conseguir UID de usuario logado
+  firebase.auth().onAuthStateChanged(function (user) {
+    if (user) {
+      var userUid = user.uid;
+      db.collection('games')
+        .where('id_user', '==', userUid)
+        .get()
+        .then((querySnapshot) => {
+          querySnapshot.forEach((doc) => {
+            console.log(doc.data());
+
+            // Hay que formatear la fecha
+            let select = `<br>
+              <h3>Date</h3>
+              <p>${doc.data().date}</p><br>
+              <h3>Score</h3>
+              <p>${doc.data().score}</p><br>
+              <hr>
+              `;
+            document.getElementById("userGames").innerHTML += select;//Solo me faltaba añadir el "+"!!!!
+
+          });
+        });
+    } else {
+      console.log("no hay usuarios en el sistema");
+    }
+  });
+};
+
 
 //Fin de datos y funciones FIREBASE ---------------------------------------------------------------------
