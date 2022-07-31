@@ -46,7 +46,7 @@ async function getQuestions() {
     // Controlar usuario logado
     firebase.auth().onAuthStateChanged(function (user) {
       if (user) {
-        userName.innerHTML = "Usuario: " + user.email;
+        userName.innerHTML = "User: " + user.email;
         console.log(`Sesion iniciada con: ${user.email}`)
       } else {
         console.log("no hay usuarios en el sistema");
@@ -76,8 +76,8 @@ async function getQuestions() {
         submitBtn.remove();//Eliminamos el boton siguiente
         quiz.innerHTML = `  <div class="quizCont">                        
                            <h2 id="question">You replied ${score}/ 10 correct questions. Keep trying </h2>        
-                           <button id="reload" class="reload" onclick="location.reload()">Volver a jugar</button>
-                           <button id="logout" class="reload" onclick="signOut()">Cerrar sesión</button>
+                           <button id="reload" class="reload" onclick="location.reload()">Try Again</button>
+                           <button id="logout" class="reload" onclick="signOut()">Sign out</button>
                            <h2></h2>
                            </div>
 

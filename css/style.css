@@ -1,11 +1,33 @@
 * {
-    text-align: start;
+    text-align: center;
     box-sizing: border-box;
     font-family: 'Electrolize', sans-serif;
 
     color: #ec0ee7;
 }
 
+#title-results{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: -70px;
+    background:linear-gradient(to bottom, white 0%, #9999ff 100%) !important;
+ 
+}
+.ct-chart{
+    background:linear-gradient(to bottom, #ec0ee884 0%, #9999ff 100%) !important;
+    
+   
+}
+.ct-series-a .ct-bar {
+    /* Colour of your bars */
+    stroke: white !important;
+    /* The width of your bars */
+    stroke-width: 20px;
+    /* Yes! Dashed bars! */
+    stroke-dasharray: 20px;
+    /* Maybe you like round corners on your bars? */
+    stroke-linecap:square;
+  }
 #start_container {
     display: flex;
     flex-direction: column;
@@ -159,7 +181,31 @@ ul li {
 .btn:hover {
     background-color: #ec0ee884;
 }
+.googleDiv{
+    display: flex;
+}
+#google{
+    display: contents;
+    align-items: center;
+}
+#google img{
+    margin: 0px;
+    padding: 0px;
 
+}
+#guestUser{
+    margin-top: 15px !important;
+    display: contents !important;
+    height: 40px !important;
+    width: 19rem !important;
+    border-radius: 5px;
+}
+#guestUser a{
+    height: 28px;
+    width: 15px;
+    background-color:#9999ff !important;
+    color: white !important;
+}
 input:checked+label {
     background-color: #f975f684;
 }
@@ -167,6 +213,13 @@ input:checked+label {
 /* Casilla del checkbox */
 input {
     display: none;
+}
+
+p{
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    color: white;
 }
 
 #submit {

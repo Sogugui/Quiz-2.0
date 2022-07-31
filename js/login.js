@@ -33,8 +33,8 @@ const signUpUser = (email, password) => {
     .then((userCredential) => {
       // Signed in
       let user = userCredential.user;
-      console.log(`Su usuario ${user.email} se ha registrdo correctamente`)
-      alert(`se ha registrado ${user.email} ID:${user.uid}`)
+      console.log(`Your ${user.email} has been correctly registered`)
+      alert(`Your ${user.email} ID:${user.uid} has been correctly registered`)
       // ...
       // Guarda El usuario en Firestore
       createUser({
@@ -52,37 +52,37 @@ const signUpUser = (email, password) => {
 
 };
 
-//EN PRUEBAS--------------------------------------------------------------
-//Añadir score y fecha a usuario actual
-function addScore(num) {
+async function GoogleSignup (){
+  let provider = new firebase.auth.GoogleAuthProvider();//Sirve para llamar al proveedor de google
+  try{
+      const response = await firebase.auth().signInWithPopup(provider);
+      console.log(response);
 
-  firebase.auth().onAuthStateChanged(function (user) {
-    if (user) {
-      var userUid = user.uid;
-      // var date = firebase.firestore.FieldValue.serverTimestamp();
-      var d =  new Date();
-      let date = d.toLocaleDateString(); // cambio de var date porque no seteaba la fecha correctamente
-      console.log(date);
-
-      db.collection("games").doc()//imposible obtener la ID del doc
-        .set({
-          date: date,
-          id_user: userUid,
-          score: num
-        },
-          { merge: true })
-        .then(() => {
-          console.log("Document successfully written!");
-        })
-        .catch((error) => {
-          console.error("Error writing document: ", error);
+      let newUser = { //registra al usuario en la base de datos de firebase(en caso de que no esté) cuando se logea atraves de google
+        email: response.user.email,
+        name: response.user.id,
+      }
+      
+      db.collection("users")
+        .where("email", "==", response.users.email)
+        .get()
+        .then((querySnapshot) => {
+          console.log(querySnapshot);
+          //Condicional que verifica si en la base de datos hay un usuario con ese nombre, si no lo hay lo crea. El .size seria como el length del firebase con ese usuario.
+          if(querySnapshot.size == 0){
+            db.collection("users")
+            .add(newUser)
+            .then((docRef) => console.log("Document written with ID: ", docRef.id))
+            .catch((error) => console.error("Error adding document: ", error));
+          } else{
+            console.log(`usuario de nombre ${response.users.id} ya existe en la BBDD firestore.`);
+          }
         });
-    } else {
-      console.log("no hay usuarios en el sistema");
+        console.log(response.users.id);
+      }catch(error){  
+        console.log(error);
     }
-  });
-}
-//------------------------------------------------------------------------------
+      }
 
 //Iniciar sesion
 const signInUser = (email, password) => {
@@ -91,14 +91,13 @@ const signInUser = (email, password) => {
       // Signed in
       let user = userCredential.user;
       console.log(`se ha logado ${user.email} ID:${user.uid}`)
-      alert(`Hola ${user.email}!!`)
+      alert(`Welcome ${user.email}!!`)
       console.log(user);
       const cuUser = firebase.auth().currentUser;//Obtenemos el usuario actual
       console.log(cuUser.email);
-
       window.location.href = "./quiz.html";
-
-    })
+    }
+    )
     .catch((error) => {
       let errorCode = error.code;
       let errorMessage = error.message;
@@ -106,6 +105,41 @@ const signInUser = (email, password) => {
       console.log(errorMessage)
     });
 }
+
+// Iniciar sesion con google
+
+//Función de login con Auth
+async function Googlelogin (){
+  let provider = new firebase.auth.GoogleAuthProvider();//Sirve para llamar al proveedor de google
+  try{
+      const response = await firebase.auth().signInWithPopup(provider);
+      console.log(response);
+      
+      db.collection("users")
+        .where("email", "==", response.users.email)
+        .get()
+        .then((querySnapshot) => {
+          console.log(querySnapshot);
+          //Condicional que verifica si en la base de datos hay un usuario con ese nombre, si no lo hay lo crea. El .size seria como el length del firebase con ese usuario.
+          if(querySnapshot.size == 0){
+            db.collection("users")
+            .add(newUser)
+            .then((docRef) => console.log("Document written with ID: ", docRef.id))
+            .catch((error) => console.error("Error adding document: ", error));
+          } else{
+            console.log(`usuario de nombre ${response.users.id} ya existe en la BBDD firestore.`);
+          }
+        });
+        console.log(response.users.id);
+
+      // return response.user;
+
+  }catch(error){  
+      console.log(error);
+  }
+}
+
+
 
 //Cerrar sesion
 const signOut = () => {
@@ -145,33 +179,167 @@ function paintScores() {
   firebase.auth().onAuthStateChanged(function (user) {
     if (user) {
       var userUid = user.uid;
-      var d =  new Date();
+      var d = new Date();
       let date = d.toLocaleDateString(); // cambio de var date porque no seteaba la fecha correctamente
-      console.log(date);
-      db.collection('games')
-        .where('id_user', '==', userUid)
+      db.collection("games")
+        .where("id_user", "==", userUid)
         .get()
         .then((querySnapshot) => {
           querySnapshot.forEach((doc) => {
             console.log(doc.data());
-
-            // Hay que formatear la fecha
-            let select = `<br>
-              <h3>Date</h3>
-              <p>${date}</p><br>
-              <h3>Score</h3>
-              <p>${doc.data().score}</p><br>
-              <hr>
-              `;
-            document.getElementById("userGames").innerHTML += select;//Solo me faltaba añadir el "+"!!!!
-
+          })});
+ // Grafica de partidas jugadas
+          let paintedScore = [];
+          let scoreDate = [];
+          async function getGamedata() {
+            await db
+              .collection("games")
+              .where("date", "==", date)
+              .limit(8)
+              .get()
+              .then((querySnapshot) => {
+                querySnapshot.forEach((doc) => {
+                  paintedScore.push(doc.data().score);
+                  scoreDate.push(doc.data().date);
+                });
+              })
+              .catch((error) => {
+                console.log("Error getting documents: ", error);
+              });
+          }
+          getGamedata().then(() => {
+            createChart(paintedScore, scoreDate);
           });
+
+          function createChart(paintedScore, scoreDate) {
+            var data ={
+              labels: scoreDate,
+              series:[paintedScore]
+            }
+            var options = {
+              seriesBarDistance: 10,
+              low: 0,
+              high: 10,
+              axisY: {
+                onlyInteger: true,
+              }
+            }
+            var defaultOptionsY = {
+              // The title to be displayed on the axis. If at least one axis title is not supplied then an error is thrown.
+              // This can also be passed a function to enable simple updating of the title if your chart data changes.
+              axisYTitle: "Score",
+            
+              // One or more class names to be added to the axis title.
+              // Multiple class names should be separated by a space.
+              // This can also be passed a function to enable simple updating of the classes if your chart data changes.
+              axisClass: "ct-axis-score",
+            
+              // How much to offset the title by.
+              // Please note, x and y offset values for axisY are flipped due to the rotation of the axisY title by 90 degrees.
+              // Therefore changing the x value moves up/down the chart, while changing y moves left/right.
+              offset: { x: 0, y: 0 },
+            
+              // Defines the anchoring of the title text. Possible values are 'start', 'end' and 'middle'.
+              textAnchor: "start",
+            
+              // Whether to flip the direction of the text. Note - This can only be used on axis Y.
+              flipTitle: false
+            }
+            var defaultOptionsX = {
+              // The title to be displayed on the axis. If at least one axis title is not supplied then an error is thrown.
+              // This can also be passed a function to enable simple updating of the title if your chart data changes.
+              axisYTitle: "Date",
+            
+              // One or more class names to be added to the axis title.
+              // Multiple class names should be separated by a space.
+              // This can also be passed a function to enable simple updating of the classes if your chart data changes.
+              axisClass: "ct-axis-date",
+            
+              // How much to offset the title by.
+              // Please note, x and y offset values for axisY are flipped due to the rotation of the axisY title by 90 degrees.
+              // Therefore changing the x value moves up/down the chart, while changing y moves left/right.
+              offset: { x: 0, y: 0 },
+            
+              // Defines the anchoring of the title text. Possible values are 'start', 'end' and 'middle'.
+              textAnchor: "start",
+            
+            };
+            new Chartist.Bar('.ct-chart', data, options,defaultOptionsY,defaultOptionsX);       
+            
+          }
+
+         } else {
+      console.log("no hay usuarios en el sistema");
+    }})}
+//Fin de datos y funciones FIREBASE ---------------------------------------------------------------------
+
+//Añadir score y fecha a usuario actual
+function addScore(num) {
+
+  firebase.auth().onAuthStateChanged(function (user) {
+    if (user) {
+      var userUid = user.uid;
+      // var date = firebase.firestore.FieldValue.serverTimestamp();
+      var d =  new Date();
+      let date = d.toLocaleDateString(); // cambio de var date porque no seteaba la fecha correctamente
+      console.log(date);
+
+      db.collection("games").doc()//imposible obtener la ID del doc
+        .set({
+          date: date,
+          id_user: userUid,
+          score: num
+        },
+          { merge: true })
+        .then(() => {
+          console.log("Document successfully written!");
+        })
+        .catch((error) => {
+          console.error("Error writing document: ", error);
         });
     } else {
       console.log("no hay usuarios en el sistema");
     }
+    return date,num
   });
-};
+}
+//------------------------------------------------------------------------------
 
 
-//Fin de datos y funciones FIREBASE ---------------------------------------------------------------------
+
+// new Chartist.Bar(
+//   ".ct-chart",
+//   {
+//     labels: scoreDate, 
+//     series: [paintedScore],
+
+//   },
+//   {
+//     seriesBarDistance: 10,
+//     low: 0,
+//     high: 10,
+//     axisY: {
+//       onlyInteger: true,
+//     },
+//   },
+//   {
+//     // The title to be displayed on the axis. If at least one axis title is not supplied then an error is thrown.
+//     // This can also be passed a function to enable simple updating of the title if your chart data changes.
+//     axisTitle: "Score",
+  
+//     // One or more class names to be added to the axis title.
+//     // Multiple class names should be separated by a space.
+//     // This can also be passed a function to enable simple updating of the classes if your chart data changes.
+//     axisClass: "ct-axis-title",
+  
+//     // How much to offset the title by.
+//     // Please note, x and y offset values for axisY are flipped due to the rotation of the axisY title by 90 degrees.
+//     // Therefore changing the x value moves up/down the chart, while changing y moves left/right.
+//     offset: { x: 0, y: 0 },
+  
+//     // Defines the anchoring of the title text. Possible values are 'start', 'end' and 'middle'.
+//     textAnchor: "middle",
+  
+//     // Whether to flip the direction of the text. Note - This can only be used on axis Y.
+//     flipTitle: false
+//   }
