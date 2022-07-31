@@ -10,9 +10,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Electrolize&family=Neonderthaw&display=swap" rel="stylesheet">
     <link rel="shortcut icon" href="https://img.icons8.com/nolan/344/question-mark.png" type="image/x-icon">
     <link rel="stylesheet" href="./css/style.css">
-     <!-- grafica chartist -->
-     <link rel="stylesheet" href="//cdn.jsdelivr.net/chartist.js/latest/chartist.min.css">
-     <script src="//cdn.jsdelivr.net/chartist.js/latest/chartist.min.js"></script>
+    <!-- grafica chartist -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/chartist.js/latest/chartist.min.css">
+    <script src="//cdn.jsdelivr.net/chartist.js/latest/chartist.min.js"></script>
     <title>Quiz</title>
 </head>
 
@@ -26,7 +26,11 @@
             <p>Sign in with your email</p>
             <input id="email2" name="email2" class="btn" type="text" placeholder="User" />
             <input id="pass3" name="pass3" class="btn" type="password" placeholder="Password" />
-            <div><p>Sign in with your Google account</p><button id="google"><img src="./assets/img/icons8-logo-de-google-144.png"style="height: 28px; background:#9999ff"/></button><br></div>
+            <div>
+                <p>Sign in with your Google account</p><button id="google"><img
+                        src="./assets/img/icons8-logo-de-google-144.png"
+                        style="height: 28px; background:#9999ff" /></button><br>
+            </div>
             <button id="submitIndex" type="submit">Sign In</button>
             <!-- Boton de Sign in con Google -->
             <button id="guestUser"><a href="quiz.html">Guest User</a></button>
@@ -35,14 +39,17 @@
         <hr>
         <form id="form1" action="" class="quizCont">
             <h2 id="questionIndex3">Dont have an account yet? Sign up</h2>
-            
+
             <p>With your email</p>
             <input class="btn" type="email" id="email" name="email" placeholder="email" />
             <input class="btn" type="password" id="pass" name="pass" placeholder="password" />
             <input class="btn" type="password" id="pass2" name="pass2" placeholder="Repeat Password" />
 
-            <div><p>With your Google account</p><button id="google"><img src="./assets/img/icons8-logo-de-google-144.png"style="height: 28px; background:#9999ff"/></button><br></div>
-            
+            <div>
+                <p>With your Google account</p><button id="google"><img src="./assets/img/icons8-logo-de-google-144.png"
+                        style="height: 28px; background:#9999ff" /></button><br>
+            </div>
+
 
             <!-- <input class="btn" type="password" id="pass2" name="pass2" placeholder="Repite contraseña" /> -->
             <button id="submitCreate" type="submit">Create User</button>
@@ -51,12 +58,6 @@
     </main>
 
     <footer>
-
-        <!-- <div class="grafica">
-            <h2 id="questionIndex">Últimos resultados</h2>
-            <p>Aquí va la grafica con los datos obtenidos de firabase</p>
-            <div class="ct-chart ct-perfect-fourth"></div>
-        </div> -->
     </footer>
     <!-- script firebase -->
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
