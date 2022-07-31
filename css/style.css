@@ -1,0 +1,578 @@
+* {
+    text-align: center;
+    box-sizing: border-box;
+    font-family: 'Electrolize', sans-serif;
+
+    color: #ec0ee7;
+}
+
+#title-results{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: -45px;
+
+}
+.ct-chart{
+    background:linear-gradient(to bottom, #ec0ee884 0%, #9999ff 100%) !important;
+    
+   
+}
+.ct-series-a .ct-bar {
+    /* Colour of your bars */
+    stroke: white !important;
+    /* The width of your bars */
+    stroke-width: 20px;
+    /* Yes! Dashed bars! */
+    stroke-dasharray: 20px;
+    /* Maybe you like round corners on your bars? */
+    stroke-linecap:square;
+  }
+#start_container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 20px;
+    box-shadow: 5px 5px 5px 3px black;
+    width: 300px;
+    height: 500px;
+    overflow: wrap;
+    position: relative;
+    top: 100px;
+}
+
+#click {
+    text-align: center;
+    text-decoration: none;
+    background-color: rgb(57, 57, 57);
+    background-size: cover;
+    color: #fff;
+    border: none;
+    display: block;
+    cursor: pointer;
+    font-size: 1.1rem;
+    position: relative;
+    top: 60px;
+    left: 30%;
+    height: 40px;
+    width: 120px;
+    border-radius: 20px;
+    transition: 0.2s;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0px;
+    background-image: url(../assets/img/4729668.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center center;
+    background-size: auto;
+    flex-wrap: wrap;
+    align-content: space-around;
+}
+.ct-perfect-fourth>svg {
+    display: block !important;
+    position: absolute !important;
+    top: 11px !important;
+    left: -3px !important;
+}
+
+#main {
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    margin: 0px;
+}
+
+.form_box{
+    display: block;
+    margin-left: 4rem;
+}
+.Box {
+    background-color: rgb(22, 14, 36);
+    background-size: cover;
+    border: 10px;
+    border-radius: 20px;
+    box-shadow: 5px 5px 5px 3px black;
+    width: 300px;
+    height: 500px;
+    overflow: wrap;
+    position: relative;
+    top: 30px;
+}
+
+.quizCont {
+    align-content: center;
+    margin-top: 30px;
+    margin-right: 50px;
+}
+
+#question {
+
+    /* right: 20px; */
+    width: 13em;
+    overflow: wrap;
+    /* padding-left: 4em; */
+    font-family: 'Electrolize', sans-serif;
+    color: papayawhip;
+    display: flex;
+    flex-direction: column;
+}
+/* añadido id para index */
+
+#questionIndex{
+    display: flex;
+    color: papayawhip !important;
+    font-size: larger;
+    justify-content: center;
+}
+#questionIndex2 {
+    width: 15em;
+    overflow: wrap;
+    text-align: center;
+    font-family: 'Electrolize', sans-serif;
+    color: papayawhip;
+    margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+    
+  
+}
+#questionIndex3{
+    display: flex;
+    color: papayawhip;
+}
+
+h1 a {
+    font-family: 'Neonderthaw', cursive !important;
+    font-size: 60px;
+
+
+}
+
+h2 {
+    display: flex;
+}
+
+ul {
+    list-style-type: none;
+    padding-left: 0;
+    position: relative;
+    right: 40px;
+    width: 290px;
+}
+
+ul li {
+    font-size: 1.5rem;
+    margin: 1rem 1.5rem;
+    background-color: #fff;
+    border-radius: 30px;
+    font-family: 'Electrolize', sans-serif;
+}
+
+.btn {
+    background-color: #ec0ee7;
+    background-size: cover;
+    color: #fff;
+    border: none;
+    display: flex;
+    cursor: pointer;
+    font-size: 1.1rem;
+    padding: 1.3rem;
+    height: 40px;
+    transition: 0.2s;
+    padding: 20px;
+    border-radius: 20px;
+    font-family: 'Electrolize', sans-serif;
+    margin: 10px;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    /* margin-left: inherit; */
+    width: 18rem;
+
+}
+
+/* añadido */
+.btn:hover {
+    background-color: #ec0ee884;
+}
+.googleDiv{
+    display: flex;
+}
+#google{
+    display: contents;
+    align-items: center;
+}
+#google img{
+    margin: 0px;
+    padding: 0px;
+
+}
+#guestUser{
+    margin-top: 15px !important;
+    display: contents !important;
+    height: 40px !important;
+    width: 19rem !important;
+    border-radius: 5px;
+}
+#guestUser a{
+    height: 28px;
+    width: 15px;
+    background-color:#9999ff !important;
+    color: white !important;
+}
+input:checked+label {
+    background-color: #f975f684;
+}
+
+/* Casilla del checkbox */
+input {
+    display: none;
+}
+
+p{
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    color: white;
+}
+
+#submit {
+
+    background: linear-gradient(to bottom, #ff99ff 0%, #9999ff 100%) !important;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    /* width: 23rem; */
+    /* align-content: center; */
+    margin-top: 30px;
+    /* margin-left: 2rem; */
+    height: 3rem;
+    border-radius: 2em;
+    height: 40px;
+    width: 19rem;
+}
+
+/* Nuevo id para index */
+#submitIndex {
+        margin-left: 10px;
+        background: linear-gradient(to bottom, #ff99ff 0%, #9999ff 100%) !important;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 19rem;
+        align-content: center;
+        margin-top: 30px;
+        height: 3rem;
+        border-radius: 2em;
+}
+
+/* Nuevo id para creteUser */
+#submitCreate {
+
+    margin-left: 10px;
+    background: linear-gradient(to bottom, #ff99ff 0%, #9999ff 100%) !important;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 19rem;
+    align-content: center;
+    margin-top: 30px;
+    height: 3rem;
+    border-radius: 2em;
+}
+
+#userName{
+    display: flex;
+    font-size: inherit;
+    margin-top: -10px;
+}
+
+/* añadida clase para index */
+.message {
+    color: white;
+    text-decoration: none;
+    margin-left: 35px;
+}
+
+
+#result {
+    position: relative;
+    width: 260px;
+    text-align: center;
+    left: 20px;
+    top: 80px;
+}
+
+/* Modificado para que tenga el mismo estilo */
+/* Cambiado de ID a clase */
+.reload {
+    top: 100px;
+    left: 5px;
+
+    background-color: #ec0ee7;
+    background-size: cover;
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    font-family: 'Electrolize', sans-serif;
+    width: 23rem;
+    cursor: pointer;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    margin: 10px;
+    font-size: 1.1rem;
+    display: flex;
+
+}
+
+
+/************************** PC *******************************************/
+
+@media screen and (min-width: 1024px) {
+
+    #start_container {
+        background-color: rgb(28, 19, 43);
+        background-size: cover;
+        border-radius: 20px;
+        box-shadow: 5px 5px 5px 3px black;
+        width: 776px;
+        height: 500px;
+        overflow: wrap;
+        position: relative;
+        top: 40px;
+    }
+
+    #click {
+        text-align: center;
+        text-decoration: none;
+        background-color: rgb(64, 64, 64);
+        background-size: cover;
+        color: #fff;
+        border: none;
+        display: block;
+        cursor: pointer;
+        font-size: 1.1rem;
+        position: relative;
+        top: 60px;
+        left: 42%;
+        height: 40px;
+        width: 120px;
+        border-radius: 20px;
+        transition: 0.2s;
+        font-family: 'Electrolize', sans-serif;
+    }
+
+    body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 0px;
+        background-image: url(../assets/img/4729668.jpg);
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: center;
+        background-size: cover
+    }
+
+    .Box {
+        background-color: rgb(28, 19, 43);
+        background-size: cover;
+        border-radius: 20px;
+        box-shadow: 5px 5px 5px 3px black;
+        width: 776px;
+        height: 500px;
+        overflow: wrap;
+        position: relative;
+        top: 40px;
+    }
+
+    .quizCont {
+        margin-top: 30px;
+        margin-left: 20px;
+        margin-right: 50px;
+        padding-left: 15px;
+    }
+
+    #question {
+        font-size: 2rem;
+        position: relative;
+        top: 20px;
+        left: 30px;
+        width: 670px;
+        overflow: wrap;
+        padding: 0;
+        font-family: 'Electrolize', sans-serif;
+    }
+    h1{
+     font-family: 'Neonderthaw', cursive !important;
+    font-size: 40px;
+    margin-top: 2.2em;
+    margin-bottom: 2px;
+    }
+    h2 {
+        display: flex;
+        justify-content: center;
+    }
+
+    /* añadida id para el index */
+    #questionIndex {
+        font-size: 2rem;
+        position: relative;
+        top: 0px;
+        width: 670px;
+        overflow: wrap;
+        padding: 0;
+
+        font-family: 'Electrolize', sans-serif;
+    }
+    
+
+    /* No hace falta modificar en vision PC */
+ 
+
+    ul {
+        list-style-type: none;
+        padding-left: 0;
+        position: relative;
+        left: 10px;
+        top: 25px;
+        width: 690px;
+    }
+
+    ul li {
+        font-size: 1.5rem;
+        margin: 1rem 1.5rem;
+        padding-top: 5px;
+        padding-bottom: 15px;
+        font-family: 'Electrolize', sans-serif;
+    }
+    #userName {
+        display: flex;
+        font-size: inherit;
+        margin-top: 1rem;
+    }
+
+    ct-perfect-fourth {
+            display: block !important;
+            position: relative !important;
+            width: 100% !important;
+            margin-left: 2rem !important;
+        }
+
+
+    .btn {
+      
+        background-size: cover;
+        color: #fff;
+        border: none;
+        display: flex;
+        cursor: pointer;
+        font-size: 1.5rem;
+        top: 90px;
+        height: 60px;
+        border-radius: 15px;
+        text-decoration: none;
+        transition: 0.2s;
+        align-content: center;
+        margin-left: 130px;
+        height: 3rem;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        width: 27rem;
+
+    }
+    #submit {
+        background: linear-gradient(to bottom, #ff99ff 0%, #9999ff 100%) !important;
+        color: white;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        width: 27rem;
+        border-radius: 20px;
+        align-content: center;
+        margin-top: 30px;
+        margin-left: 7rem;
+        margin-right: 50px;
+        height: 3rem;
+        font-size: 18px;
+    }
+
+    /* añadido id para index */
+    #submitIndex {
+        background: linear-gradient(to bottom, #ff99ff 0%, #9999ff 100%) !important;
+        color: white;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        width: 27rem;
+        border-radius: 20px;
+        align-content: center;
+        margin-top: 30px;
+        margin-left: 130px;
+        margin-right: 50px;
+        height: 3rem;
+        font-size: 18px;
+    }
+
+    /* añadido id para createUser */
+    #submitCreate {
+        background: linear-gradient(to bottom, #ff99ff 0%, #9999ff 100%) !important;
+        color: white;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        width: 27rem;
+        border-radius: 20px;
+        align-content: center;
+        margin-top: 30px;
+        margin-left: 130px;
+        margin-right: 50px;
+        height: 3rem;
+        font-size: 18px;
+    }
+
+    /* añadida clase para index */
+    .message {
+        color: white;
+        text-decoration: none;
+        margin-left: 135px;
+
+    }
+
+    #click:hover {
+        background-color: rgb(0, 0, 0);
+
+    }
+
+    #result {
+        position: relative;
+        width: 260px;
+        text-align: center;
+        left: 250px;
+        top: 80px;
+    }
+
+    /* Cambiado de ID a clase */
+    .reload {
+        display: inline-flex;
+        top: 100px;
+        left: 150px;
+    }
+
+}
