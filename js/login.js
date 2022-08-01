@@ -155,20 +155,31 @@ const signOut = () => {
 
 
 // //formularios
+if(document.getElementById("form1")){
 document.getElementById("form1").addEventListener("submit", function (event) {
   event.preventDefault();
+  //Añadido RegEx de medium strong
+  let regEx=new RegExp("^(((?=.*[a-z])(?=.*[A-Z]))|((?=.*[a-z])(?=.*[0-9]))|((?=.*[A-Z])(?=.*[0-9])))(?=.{6,})");
   let email = event.target.elements.email.value;
   let pass = event.target.elements.pass.value;
   let pass2 = event.target.elements.pass2.value;
-
-  pass === pass2 ? signUpUser(email, pass) : alert("error password");
+  
+  if (regEx.test(pass)) {
+    pass === pass2 ? signUpUser(email, pass) : alert("error password");
+}
+else {
+    alert("Your password is too weak");
+}
 })
+}
 
+if(document.getElementById("form2")){
 document.getElementById("form2").onsubmit = (event) => {
   event.preventDefault();
   let email = event.target.elements.email2.value;
   let pass = event.target.elements.pass3.value;
   signInUser(email, pass)
+}
 }
 
 //Mostrar datos
@@ -186,7 +197,6 @@ function paintScores() {
         .get()
         .then((querySnapshot) => {
           querySnapshot.forEach((doc) => {
-            console.log(doc.data());
           })});
  // Grafica de partidas jugadas
           let paintedScore = [];
@@ -271,7 +281,6 @@ function paintScores() {
          } else {
       console.log("no hay usuarios en el sistema");
     }})}
-//Fin de datos y funciones FIREBASE ---------------------------------------------------------------------
 
 //Añadir score y fecha a usuario actual
 function addScore(num) {
@@ -284,7 +293,7 @@ function addScore(num) {
       let date = d.toLocaleDateString(); // cambio de var date porque no seteaba la fecha correctamente
       console.log(date);
 
-      db.collection("games").doc()//imposible obtener la ID del doc
+      db.collection("games").doc()
         .set({
           date: date,
           id_user: userUid,
@@ -300,7 +309,7 @@ function addScore(num) {
     } else {
       console.log("no hay usuarios en el sistema");
     }
-    return date,num
+    return date,num//muestra error en consola "date is not defined"
   });
 }
 //------------------------------------------------------------------------------
